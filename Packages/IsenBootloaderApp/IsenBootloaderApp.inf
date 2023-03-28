@@ -10,9 +10,15 @@
   IsenBootloaderApp.c
   IsenBootloaderApp.h
   Utils.h
+  IO.h
+  IO.c
+  elf/elfcommon.h
+  ELF32Loader.c
+  ELF64Loader.c
+  ELFLoader.h
   elf/elf32.h
   elf/elf64.h
-  elf/elfcommon.h
+
 
 [Packages]
   MdePkg/MdePkg.dec
@@ -20,13 +26,15 @@
 [LibraryClasses]
   UefiApplicationEntryPoint
   UefiLib
+  FileHandleLib
 
 [Guids]
 
 [Ppis]
 
 [Protocols]
-
+  gEfiLoadFileProtocolGuid
+  gEfiLoadedImageProtocolGuid
 [FeaturePcd]
 
 [Pcd]

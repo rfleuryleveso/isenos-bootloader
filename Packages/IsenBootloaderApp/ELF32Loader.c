@@ -1,15 +1,13 @@
-#include "ElfLoader.h"
-
-#include <util/Except.h>
-#include <util/FileUtils.h>
-
+#include "ELFLoader.h"
+#include "Utils.h"
+#include "IO.h"
 #include <Uefi.h>
 #include <Library/FileHandleLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 
-#include "elf32.h"
+#include "elf/elf32.h"
 
 EFI_STATUS LoadElf32(EFI_SIMPLE_FILE_SYSTEM_PROTOCOL* fs, CHAR16* file, ELF_INFO* info) {
   EFI_STATUS Status = EFI_SUCCESS;
@@ -74,12 +72,11 @@ EFI_STATUS LoadElf32(EFI_SIMPLE_FILE_SYSTEM_PROTOCOL* fs, CHAR16* file, ELF_INFO
 
   // copy the section headers
   info->SectionHeadersSize = ehdr.e_shnum * ehdr.e_shentsize;
-  info->SectionHeaders = AllocatePool(info->SectionHeadersSize); // TODO: Delete if error
+  info->SectionHeaders = AllocatePool(info->SectionHeadersSize);
   info->SectionEntrySize = ehdr.e_shentsize;
   info->StringSectionIndex = ehdr.e_shstrndx;
   CHECK_AND_RETHROW(FileRead(elfFile, info->SectionHeaders, info->SectionHeadersSize, ehdr.e_shoff));
 
-  // copy the entry
   info->Entry = ehdr.e_entry;
 
 cleanup:

@@ -1,3 +1,14 @@
+#include "ELFLoader.h"
+#include "Utils.h"
+#include "IO.h"
+#include <Uefi.h>
+#include <Library/FileHandleLib.h>
+#include <Library/BaseMemoryLib.h>
+#include <Library/MemoryAllocationLib.h>
+#include <Library/UefiBootServicesTableLib.h>
+
+#include "elf/elf64.h"
+
 EFI_MEMORY_TYPE gKernelAndModulesMemoryType = 0x80000000;
 
 EFI_STATUS LoadElf64(EFI_SIMPLE_FILE_SYSTEM_PROTOCOL* fs, CHAR16* file, ELF_INFO* info) {

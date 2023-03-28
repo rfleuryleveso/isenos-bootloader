@@ -2,9 +2,9 @@
 // Created by rfleuryleveso on 21/03/23.
 //
 
-#ifndef EDK2_ELF6_H
-#define EDK2_ELF6_H
-#include "elfcommon.h"
+#ifndef EDK2_ELF64_H
+#define EDK2_ELF64_H
+#include "elf/elfcommon.h"
 
 /* ELF standard typedefs (yet more proof that <stdint.h> was way overdue) */
 typedef uint16_t Elf64_Half;
