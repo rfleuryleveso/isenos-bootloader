@@ -1,0 +1,32 @@
+[Defines]
+  INF_VERSION = 1.25
+  BASE_NAME = IsenBootloaderApp
+  FILE_GUID = e9682647-5995-4109-a2cd-9c1508f6cdbd
+  MODULE_TYPE = UEFI_APPLICATION
+  VERSION_STRING = 1.0
+  ENTRY_POINT = UefiMain
+
+[Sources]
+  IsenBootloaderApp.c
+  IsenBootloaderApp.h
+  Utils.h
+  elf/elf32.h
+  elf/elf64.h
+  elf/elfcommon.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+
+[Guids]
+
+[Ppis]
+
+[Protocols]
+
+[FeaturePcd]
+
+[Pcd]

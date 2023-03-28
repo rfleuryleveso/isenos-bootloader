@@ -1,0 +1,10 @@
+//
+// Created by rfleuryleveso on 21/03/23.
+//
+
+#ifndef EDK2_ISENBOOTLOADERAPP_H
+#define EDK2_ISENBOOTLOADERAPP_H
+
+EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *SystemTable);
+
+#endif //EDK2_ISENBOOTLOADERAPP_H
